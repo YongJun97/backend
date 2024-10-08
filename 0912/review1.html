@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+.container{
+    width: 600px;
+    height: 1000px;
+    margin: 0 auto;
+    
+    
+
+}
+ul{
+    list-style: none;
+}
+
+label.title{
+    
+}
+
+fieldset{
+    float: left;
+}
+
+
+
+
+</style>
+
+
+
+
+
+
+</head>
+<body>
+    <div class="container">
+        <fieldset>
+            <h1>프런트엔드 개발자 지원서</h1>
+            <p>
+                HTML, CSS, Javascript에 대한 기술력 이해와 경험이 있는 분을 찾습니다.
+            </p>
+            <hr>
+            <h3>개인정보</h3>
+            <ul>
+                <li>
+                    <label for="r-name" class="title">이름</label>
+                    <input type="text" name="r-name" id="r-name" placeholder="공백없이 입력하세요">
+                </li>
+                <li>
+                    <label for="r-tel" class="title">연락처</label>
+                    <input type="number" name="r-tel" id="r-tel">
+                </li>
+            </ul>
+            <h3>지원분야</h3>
+                <ul>
+                    <li>
+                        <label><input type="checkbox">웹 퍼블리싱</label>
+                    </li>
+                    <li>  
+                        <label><input type="checkbox">웹 애플리케이션 개발</label>
+                    </li>    
+                    <li>
+                        <label><input type="checkbox">개발 환경 개선</label>
+                    </li>
+                </ul>
+                <h3>지원 동기</h3>
+                <ul>
+                    <li>
+                        <label for="comment"></label>
+                        <textarea name="" id="comment" cols="60" rows="5" placeholder="본사 지원 동기를 간략히 써 주세요"></textarea>
+                    </li>
+                </ul>
+        </fieldset>
+        <input type="submit" value="접수하기">
+        <input type="reset" value="다시 쓰기">
+    </div>
+</body>
+</html>

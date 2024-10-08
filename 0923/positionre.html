@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>static</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+        }
+        .box1{
+            background-color: bisque;
+        }
+        .box2{
+            background-color: aqua;
+        }
+        .box3{
+            position: relative;
+            background-color: brown;
+           top: 50px;
+           left: 50px;
+           z-index: 1; /* 순서올리기 (숫자가 클 수록 우선순위) */
+        }
+        .box4{
+            background-color: rgb(247, 153, 30);
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">박스1</div>
+    <div class="box box2">박스2</div>
+    <div class="box box3">박스3</div>
+    <div class="box box4">박스4</div>
+</body>
+</html>

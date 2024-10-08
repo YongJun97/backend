@@ -1,0 +1,9 @@
+<!-- ul#gnb>(li>a[href=#]>em)*5 -->
+      <!-- ul 의 id가 gnb인 곳에 li에 a태그 달고 href 에 #이고 em태그를 추가 한 것이 x n개 생성-->
+
+
+<!-- ul>(li>a[href=#]>em{2차메뉴$})*4 -->
+          <!-- $는 $를 붙인 곳에 1,2,3,4 숫자가 순서대로 자동생성 -->
+
+
+http://bhher1.dothome.co.kr/dongbu.html#
