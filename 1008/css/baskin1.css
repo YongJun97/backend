@@ -36,7 +36,8 @@ section .inner ul li{
     height: 355px;
     /* float: left; */
     display: inline-block;
-    /* 인라인 블록은 텍스트 센터로 중앙정렬이 가능 하지만 기본적인 마진 패딩이 있기 때문에 플로트 레프트 보다는 마진값을 적게 줘야함 */
+    /* 인라인 블록은 텍스트 센터로 중앙정렬이 가능 하지만 
+    기본적인 마진 패딩이 있기 때문에 플로트 레프트 보다는 마진값을 적게 줘야함 */
     margin-right: 37px;
 }
 section .inner ul li .frame{
