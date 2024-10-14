@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+*{margin: 0; padding: 0;}
+header{
+    width:100%;
+    max-width: 1920px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #ccc;
+}
+.slide-container{
+    width:100%;
+    max-width: 1920px;
+    height:480px;
+    position: relative;
+}
+.slider{
+    display: flex; 
+    transition : transform 0.5s;
+    /* transform: translateX(-100%);  x로이동 */
+}
+button{
+    cursor: pointer;
+    /* 가짜링크 - 손가락 모양이 나온다.*/
+    padding: 10px;
+}
+
+
+
+
+</style>
+</head>
+<body>
+    <header>
+
+    </header>
+    <div class="slide-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="images/slide1.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="images/slide2.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="images/slide3.jpg" alt="">
+            </div>
+        </div>
+        <button class="prev" onclick="">Provious</button>
+        <button class="next" onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+
+       const slider = document.querySelector('.slider'); 
+       //첫번째 일치하는 요소 .slider 한개밖에 없으므로 한개만 선택
+       const slide = document.querySelectorAll('.slide'); 
+       //모든 일차하는 .slide  세개다 선택됩니다.     
+       var currentIndex = 0;
+
+       function showSlide(index){
+        
+        currentIndex = index;
+          // alert(currentIndex);
+        var transformValue = -currentIndex * 100 + '%';
+        //alert(transformValue); -100$, -200%
+         slider.style.transform = "translateX("+transformValue+")";
+       }
+       
+       function nextSlide(){
+            showSlide(currentIndex + 1);
+       }
+
+    </script>
+</body>
+</html>
