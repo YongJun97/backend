@@ -19,6 +19,10 @@
             transition: 0.5s;
         }
 
+        li.active{
+            background-color: green;
+            border-radius: 50%;
+        }
 
 
 
@@ -28,7 +32,7 @@
     <div id="container">
         <p>도형위에 마우스 포인터를 올려 놓으세요</p>
         <ul>
-            <li class="rect"></li>
+            <li class="rect active"></li>
             <li class="rect"></li>
             <li class="rect"></li>
             <li class="rect"></li>
@@ -39,14 +43,16 @@
        var rects = document.querySelectorAll('.rect');
     //    여러개의 클라스 선택자를 등록 할 때는 querySelectorAll
     rects.forEach(function(rect){
-    rect.addEventListener('mouseover',function(){
-        rect.style.backgroundColor = 'green';
-        rect.style.borderRadius = "50%";
+    rect.addEventListener('mouseout',function(){
+        rects.forEach(function(rect){
+            rect.classList.remove('active');
+        })
     });
 
-    rect.addEventListener('mouseout',function(){
-        rect.style.backgroundColor = '';
-        rect.style.borderRadius = "";
+    rect.addEventListener('mouseover',function(){
+        
+            this.classList.add('active');
+        
     });
     })// 이러한 형태를 스려면 for문을 돌려야함
     </script>
