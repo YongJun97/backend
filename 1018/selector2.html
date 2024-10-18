@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="myDiv">First Div</div>
+    <div class="myDiv">Second Div</div>
+
+    <script>
+        // const element = document.querySelector("myDiv");
+        // console.log(element.textContent);
+        const elements = document.querySelectorAll(".myDiv");
+        elements.forEach(function(el){
+            console.log(el.textContent);
+        });
+        // for(var i =0 ; i < elements.length; i++){
+        //     console.log(elements[i].textContent);
+        // }
+
+    </script>
+</body>
+</html>  
