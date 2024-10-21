@@ -6,14 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="parent">
-        <p id="child">Hello!</p>
-    </div>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
 <script>
-    const child = document.getElementById("child");
-    const a  = child.parentNode;
-    console.log(a.id); //"parent" 출력
-    
+    const list = document.getElementById("myList");
+    const children = list.children;
+    console.log(children[0].textContent); // "Item 1" 출력
 
 
 </script>

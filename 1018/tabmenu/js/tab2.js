@@ -1,37 +1,29 @@
-const targetLink = document.querySelectorAll('.tab_menu a'); //탭버튼
+const targetLink = document.querySelectorAll('.tab_menu a');
 const tabContent=document.querySelectorAll('#tabContent>div');
-// 탭내용
 
-//targetLink 배열을 forEach로 순회
+for(let i=0; i<targetLink.length;i++){
+    targetLink[i].addEventListener('click',function(e){
+        e.preventDefault(); //return false와 유사
+        const orgTarget = e.target.getAttribute('href');
+        //클릭한 것()
+        //getAttribute 은 href, src 의 내용(value)을 읽어옴
+        //#tabs1, #tabs2, #tabs3
+        // alert(orgTarget);
+        const tabTarget=orgTarget.replace("#","");
+        //#tabs1 에서 #을 null값으로 바꾼다.-> tab1, tab2
+        //console.log(tabTarget)
+        for(let j=0; j<tabContent.length; j++){
+            tabContent[j].style.display="none"
+        }//tabContent를 모두 안보이게
+        document.getElementById(tabTarget).style.display='block';
+        //document.getElementById(tabs2).style.display='block';
 
-targetLink.forEach(function(link){
-
-    link.addEventListener('click',function(e){
-        e.preventDefault(); //링크금지
-        let orgTarget = e.target.getAttribute('href');
-        //클릭(e.taget) - this로 변경 가능
-        //getAttribute 는 href, src 속성값을 읽어옴
-        //alert(orgTarget); #tab1 ,#tabs2, #tabs3
-        let tabTarget = orgTarget.replace("#","");
-        //#tab1 에서 #을 빈문자열로 대체 -> tab1 
-        //alert(tabTarget);
-
-        //모든 tabContent을 안보이게 설정
-        tabContent.forEach(function(content){
-            content.style.display = "none";
-        }); 
-        //클릭한 탭만보이게 설정
-        document.getElementById(tabTarget).style.display="block";
-
-        targetLink.forEach(function(link2){
-            link2.classList.remove('active');
-            e.target.classList.add('active');
-        });
-
+        for(let k=0; k<targetLink.length; k++){
+            targetLink[k].classList.remove('active');
+            e.target.classList.add('active');//클릭한 놈에 active를 
+            //넣는다. -tab_menu a -> active클래를 주어 색상변경 
+        }
     }); 
 
-});
-// for(let k=0; k<targetLink.length; k++){
-//     targetLink[k].classList.remove('active');
-//     e.target.classList.add('active');//클릭한 놈에 active를 
-    //넣는다. -tab_menu a -> active클래를 주어 색상변경 
+
+}
