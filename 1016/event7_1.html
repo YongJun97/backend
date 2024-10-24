@@ -39,6 +39,7 @@
        var rects = document.querySelectorAll('.rect');
     //    여러개의 클라스 선택자를 등록 할 때는 querySelectorAll
     for(var i = 0; i < rects.length;i++){
+        // "변수 i를 0으로 초기화하고, rects 배열의 길이보다 i가 작을 동안 반복합니다. 매 반복마다 i의 값을 1씩 증가시킵니다."
         (function(rect){
     rect.addEventListener('mouseover',function(){
         rect.style.backgroundColor = 'green';

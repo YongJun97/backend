@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<style>
+    *{margin: 0;padding: 0;}
+    ul,li{list-style: none;}
+    img{border:none; vertical-align: top;}
+    #wrap{
+        width: 960px;
+        margin: 0 auto;
+    }
+    header{
+        height: 200px;
+        background-color: #ccc;
+    }
+    .imgsl{
+        width: 960px;
+        height: 400px;
+        position: relative;
+    }
+    #banner{width: 5000px;}
+    #banner li{float: left;}
+
+    .prev{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 10px;
+        top: 50%;
+    }
+    
+    .next{
+	position:absolute;
+	width:100px;
+	height:100px;
+	right:10px;
+	top:50%;
+    }
+</style>
+<script>
+    $(function(){
+        var num = 0;
+        var wi = 960;
+        var total = $("#banner li").length;
+
+        var co1 = $('#banner li').eq(0).clone();
+        $('#banner').append(co1);
+
+        $('.next').click(function(){
+            
+            if(num == total){
+                num = 0;
+                $('#banner').css('margin-left',0);
+            }
+            num++;
+            $('#banner').stop().animate({'margin-left':-num*wi},500);
+        });
+        $('.prev').click(function(){
+            if(num == 0){
+                num =4;
+                $('#banner').css('margin-left',-num*wi);
+            }
+            num--;
+            $('#banner').stop().animate({'margin-left':-num*wi},500);
+        });
+        function auto(){
+              if(num==total){
+                  num = 0;
+                  $("#banner").css('margin-left',0);
+                }
+                num++;
+                $("#banner").stop().animate({'margin-left':-num*wi},500);
+             }
+            var id = setInterval(auto,2000);
+         
+              $('.img_slide').mouseenter(function(){
+                clearInterval(id);//setInterval을 멈추는 기능
+              }); 
+              $('.img_slide').mouseleave(function(){
+                  id = setInterval(auto,2000);
+              });
+
+
+
+
+
+    });
+
+
+
+
+</script>
+<body>
+    <div id="wrap">
+        <header></header>
+        <div class="imgsl">
+            <ul id="banner">
+                <li><a href="#"><img src="img/p1.jpg" alt=""></a></li>
+                <li><a href="#"></a><img src="img/p2.jpg" alt=""></li>
+                <li><a href="#"></a><img src="img/p3.jpg" alt=""></li>
+                <li><a href="#"></a><img src="img/p4.jpg" alt=""></li>
+            </ul>
+            <p>
+                <a href="#" class="prev">
+                    <img src="img/left1.png" alt="이전">
+                </a>
+                <a href="#" class="next">
+                    <img src="img/right1.png" alt="다음">
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

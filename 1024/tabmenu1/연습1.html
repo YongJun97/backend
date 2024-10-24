@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<style>
+    *{margin: 0;padding: 0;}
+ul{list-style: none;}
+.wrap{
+    width: 900px;
+    height: 200px;
+    /* background-color: antiquewhite; */
+    margin: 200px auto;
+}
+ul li{
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    background-color: coral;
+    color: white;
+    text-align: center;
+    float: left;
+    margin-right: 2px;
+}
+.box{
+    width: 100%;
+    height: 150px;
+    float: left;
+    border: 1px solid #999;
+}
+.box > div{
+
+    display: none;
+}
+.box h2{
+    color: crimson;
+    margin: 20px 0 30px 40px;
+}
+.box p{
+    color: cornflowerblue;
+    margin-left: 40px;
+}
+
+.wrap li.on{background-color: cadetblue; color: blueviolet;}
+
+.box div.blo{ display: block;}
+</style>
+<script>
+    $(function(){
+        $('ul li').click(function(){
+            const i =$(this).index();
+
+            $('ul li').removeClass('on');
+            $('.box div').removeClass('blo');
+            $('ul li').eq(i).addClass('on');
+            $('.box div').eq(i).addClass('blo');
+
+        });
+    });
+
+
+
+</script>
+<body>
+    <div class="wrap">
+            <ul>
+                <li>메뉴11111</li>
+                <li>메뉴22222</li>
+                <li>메뉴33333</li>
+            </ul>
+        <div class="box">
+            <div>
+                <h2>흐무흐무흐무</h2>
+                 <p>하ㅓ라얼알아렁ㄹ언린얼ㄴ이라ㅓㄴㅇ러낭러ㅏㅣ너리ㅏ너란이란랑ㄴ리ㅓㄴㅇ</p>
+            </div>
+            <div>
+                <h2>rrererererere</h2>
+                <p>dasdsadkakljldskjsdjklj</p>
+            </div>
+            <div>
+                <h2>후후후후ㅜ후후후후훟</h2>
+                <p>아르ㅓㅇ나ㅑ런애ㅑ런ㅇㄹㅇㄴ런이ㅏ</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

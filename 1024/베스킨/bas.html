@@ -15,15 +15,39 @@ body{
     width: 1200px;
     height: 160px;
     margin: 100px auto;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 .box{
     width: 395px;
     height: 160px;
+    margin: 0 auto;
 }
 ul{
+    width: 395px;
+    height: 160px;
+    display: flex;
+    /* overflow: hidden; */
     
 }
+ul li .img1{
+    width: 25px;
+    height: 160px;
+}
+ul li.menu img{
+    width: 320px;
+    height: 160px;
+}
+ul li.menu{
+    width: 0;
+    overflow: hidden;
+    transition: width 0.5s;
+}
+ul li.menu.active{
+    background: url(orange01.png);
+}
+
+
+
 
 
 </style>
@@ -31,14 +55,13 @@ ul{
 <body>
     <div class="bigbox">
         <div class="box">
-            <ul><img src="blue01.png" alt="">
-                <li><img src="menuimg01.jpg" alt=""></li>
-            </ul>
-            <ul><img src="blue01.png" alt="">
-                <li><img src="menuimg02.jpg" alt=""></li>
-            </ul>
-            <ul><img src="blue01.png" alt="">
-                <li><img src="menuimg03.jpg" alt=""></li>
+            <ul>
+                <li class="img1" data-original-src="blue01.png"><img src="blue01.png" alt=""></li>
+                <li class="menu1 menu"><img src="menuimg01.jpg" alt=""></li>
+                <li class="img1" data-original-src="blue01.png"><img src="blue01.png" alt=""></li>
+                <li class="menu2 menu" ><img src="menuimg02.jpg" alt=""></li>
+                <li class="img1" data-original-src="blue01.png"><img src="blue01.png" alt=""></li>
+                <li class="menu3 menu"><img src="menuimg03.jpg" alt=""></li>
             </ul>
         </div>
     </div>
@@ -47,7 +70,30 @@ ul{
 <script>
     // 첫번째 이미지만 남기고 숨기기
     $(function(){
-        // $('li span img:not(:first)').css('width','0px')
+        $('ul li.menu:not(:first)').css('width', '0');
+        $('.img1').addClass('active');
+
+        $('.img1').click(function(){
+            const add = $(this).next('.menu');
+
+            if(add.css('width') === '0px'){
+                $('.menu').css('width','0px');
+                add.css('width','320px');
+               
+
+                const aff = 'orange01.png'
+                $(this).find('img').attr('src',aff);
+
+                lastClicked = this;
+            }else{
+                add.css('width','0px')
+                const aww = $(this).data('original-src');
+                $(this).find('img').attr('src',aww);
+            }
+            if (lastClicked === this) {
+                lastClicked = null;
+            }
+        });
     });
 
 

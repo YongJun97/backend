@@ -9,6 +9,9 @@ heading.forEach(function(headingElement){
     headingElement.addEventListener('click',function(e){
         question.forEach(function(q){
             q.classList.remove('on');
+        const body = q.querySelector('.panel-body');
+        body.style.display = 'none'; // 숨기기
+        body.style.opacity = '0'; //
         });
         e.target.parentNode.classList.add('on');
 
