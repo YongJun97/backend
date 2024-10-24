@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.js"></script>
+<style>
+.tab{display: flex; height: 40px; line-height: 40px; text-align: center;}
+.tab li{background-color: white; list-style: none; width: 70px;}
+.tab li.on{background-color: red; font-weight: bold; color: #fff;}
+
+.tab_list{width: 280px; height: 200px; border: 1px solid #333;}
+.tab_list div{display: none;}
+.tab_list div.on{display: block;}
+
+
+</style>
+<script>
+$(function(){
+    $('.tab li').click(function(){
+        var i = $(this).index(); //클릭한 인덱스 번호를 변수 i에 대입
+        // alert(i);
+        $('.tab li').removeClass('on');
+        $('.tab_list div').removeClass('on');
+        $('.tab li').eq(i).addClass('on');
+        $('.tab_list div').eq(i).addClass('on');
+        
+    });
+});
+
+
+
+</script>
+
+
+
+</head>
+<body>
+    <div class="tab_list">
+        <ul class="tab">
+            <li class="on">1번</li>
+            <li>2번</li>
+            <li>3번</li>
+        </ul>
+            <div class="on">
+                <p>1번의 내용입니다.</p>
+                <p>1번의 내용입니다.</p>
+                <p>1번의 내용입니다.</p>
+            </div>
+            <div>
+                <p>2번의 내용입니다.</p>
+                <p>2번의 내용입니다.</p>
+                <p>2번의 내용입니다.</p>
+            </div>
+            <div>
+                <p>3번의 내용입니다.</p>
+                <p>3번의 내용입니다.</p>
+                <p>3번의 내용입니다.</p>
+            </div>
+    </div>
+</body>
+</html>

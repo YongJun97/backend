@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rollweb</title>
+  <script src="http://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="js/jquery-1.10.2.min.js"></script>
+<script>
+ $(function(){
+  var num=0;
+  var wi = 960;
+ //var wi = $("#banner li").width();
+  var total = $("#banner li").length;
+  //alert(total);
+
+  var copy1 = $("#banner li").eq(0).clone();//첫번째 사진을 복제
+  $("#banner").append(copy1);
+
+  $('.next').click(function(){
+    if(num==total){
+      num = 0;
+      $("#banner").css('margin-left',0);
+    }
+    num++;
+    $("#banner").stop().animate({'margin-left':-num*wi},500);
+
+  });
+  $('.prev').click(function(){
+    if(num==0){
+      num = 4;
+      $("#banner").css('margin-left',-num*wi);
+    }
+    num--;
+    $("#banner").stop().animate({'margin-left':-num*wi},500);
+
+  });
+ function auto(){
+  if(num==total){
+      num = 0;
+      $("#banner").css('margin-left',0);
+    }
+    num++;
+    $("#banner").stop().animate({'margin-left':-num*wi},500);
+ }
+var id = setInterval(auto,2000);
+
+  $('.img_slide').mouseenter(function(){
+    clearInterval(id);//setInterval을 멈추는 기능
+  }); 
+  $('.img_slide').mouseleave(function(){
+      id = setInterval(auto,2000);
+  });
+
+
+ });
+
+
+</script>
+
+
+<style>
+  *{margin: 0;padding: 0;}
+  img{border:none; vertical-align: top;}
+  ul,li{list-style: none;}
+  #wrap{
+      width:960px;
+      margin: 0 auto;
+  }
+  header{
+      height:200px;
+      background-color: #ccc;
+  }
+  .img_slide{
+      width:960px;
+      height:400px;
+      position: relative;
+  }
+  #banner{width:5000px;}/*960*4  = 3840 + 960(복제) = 4800 - 여유있게 */
+  #banner li{float:left;}
+  .prev{
+	position:absolute;
+	width:100px;
+	height:100px;
+	left:10px;
+	top:50%;
+	margin-top:-50px;
+}
+.next{
+	position:absolute;
+	width:100px;
+	height:100px;
+	right:10px;
+	top:50%;
+	margin-top:-50px;
+}
+
+</style>
+
+
+</head>
+<body>
+  <div id="wrap">
+    <header></header>
+    <div class="img_slide">
+      <ul id="banner">
+        <li><a href="#"><img src="img/p1.jpg" alt="사진1"></a></li>
+        <li><a href="#"><img src="img/p2.jpg" alt="사진1"></a></li>
+        <li><a href="#"><img src="img/p3.jpg" alt="사진1"></a></li>
+        <li><a href="#"><img src="img/p4.jpg" alt="사진1"></a></li>
+      </ul>
+      <p>
+        <a href="#" class="prev">
+            <img src="img/left1.png" alt="이전 버튼">
+        </a>
+        <a href="#" class="next">
+            <img src="img/right1.png" alt="다음 버튼">
+        </a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
