@@ -1,0 +1,53 @@
+*{margin: 0;padding: 0;}
+body{font-size: 12px;font-family: Dotum;
+color:#74767a;line-height: 120%;}
+a{color:#74767a;text-decoration: none;}
+ul{list-style: none;}
+img{border:none;vertical-align: middle;}
+
+#wrap{
+
+}
+
+#barndVisual{
+    position: relative;
+    width: 100%;
+    min-width: 1000px;
+    height: 500px;
+    background-color: #8c908c;
+}
+#brandVisual ul li{
+    position: absolute;
+    width: 100%;
+    height: 500px;
+}
+
+#brandVisual ul li.visual_0{
+    left: 0;
+    background: url(../img/0.png) no-repeat 50% 0;
+}
+#barndVisual ul li.visual_1{
+    left: 100%;
+    background: url(../img/1.png) no-repeat 50% 0;
+}
+#brandVisual ul li.visual_2{
+    left: 200%;
+    background: url(../img/2.png) no-repeat 50% 0;
+}
+#buttonList:after{
+	content:''; display:block; clear:both;
+}
+#buttonList:after{
+	content:''; display:block; clear:both;
+}
+#buttonList li{
+    width: 14px;
+    height: 15px;
+    float: left;
+    margin: 0 5px;
+    background: url(../img/btnVisual.png) 0 -16px no-repeat;
+}
+#buttonList li.on{
+    background-position: 0 0;
+}
+#buttonList li a{display: block;text-indent: -9999px;}
