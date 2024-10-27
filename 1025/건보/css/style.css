@@ -1,0 +1,67 @@
+*{margin:0;padding:0}
+ul{list-style: none;}
+
+#wrap{
+    width: 420px;
+    height: 300px;
+    background-color: coral;
+    margin: 180px auto;
+    border-radius: 10px;
+    padding-top: 70px;
+    position: relative;
+}
+#wrap h2{
+    position: absolute;
+    top: 20px;
+    left: 35px;
+}
+.box{
+    width: 350px;
+    height: 234px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.box ul{
+    width: 1800px;
+}
+.box ul li{
+    float: left;
+    width: 350px;
+    height: 234px;
+}
+.box ul li a img{
+    float: left;
+    display: block;
+    width: 350px;
+    height: 234px;
+   border-radius: 10px;
+}
+.btn{
+    position: absolute;
+    width: 200px;
+    height: 20px;
+    right: 0;
+    top: 20px;
+    
+}
+.btn p{
+    font-weight: bold;
+    font-size: 20px;
+    float: left;
+} 
+.btn p:first-child{
+    margin-right: 30px;
+    padding-left: 20px;
+}
+.btn p a{
+    float: left;
+    margin-right: 10px;
+}
+.btn p strong{
+    color: darkcyan;
+    font-size: 20px;
+} 
+.btn p span{
+    font-size: 18px;
+}
+.play{display: none;}
