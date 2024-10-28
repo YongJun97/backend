@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.7.1.js"></script>
+<style>
+*{margin: 0;padding: 0;}
+a{text-decoration: none;}
+ul{list-style: none;}
+
+
+section {
+    width: 400vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row; /* 가로 방향으로 정렬 */
+}
+
+article {
+    width: 100vw; /* 각 article이 화면의 전체 너비를 차지 */
+    height: 100vh; /* 각 article의 높이도 화면의 전체 높이를 차지 */
+}
+
+
+#article1{
+    background-color: aqua;
+}
+#article2{
+    background-color: bisque;
+}
+#article3{
+background-color: blueviolet;
+}
+#article4{
+    background-color: chartreuse;
+}
+
+
+
+
+nav{
+    position: fixed;
+    top: 0;
+    height: 100px;
+    width: 500px;
+    background: rgba(255,255,255,0.5);
+}
+
+nav ul li{float: left;
+margin-right: 20px;}
+nav ul li a{
+    display: block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    margin: 0 auto;
+    list-style: none;
+    color: #000;
+}
+nav ul li.on a{
+    color: orange;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="on"><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+            <li><a href="#">메뉴4</a></li>
+        </ul>
+    </nav>
+    <section>
+        <article id="article1"></article>
+        <article id="article2"></article>
+        <article id="article3"></article>
+        <article id="article4"></article>
+    </section>
+<script>
+$(function(){
+    var a0 = $('section > article').eq(0).offset().left;
+    var a1 = $('section > article').eq(1).offset().left;
+    var a2 = $('section > article').eq(2).offset().left;
+    var a3 = $('section > article').eq(3).offset().left;
+    console.log(a0,a1,a2,a3);
+
+    
+
+    $('nav ul li').click(function(){
+        var i = $(this).index();
+        // alert(i);
+        var offset_t = $('section > article').eq(i).offset().left;
+
+        $('html , body').stop().animate({scrollLeft:offset_t}, 1300);
+        $('nav ul li').removeClass('on');
+        $('nav ul li').eq(i).addClass('on');
+        return false;
+    });
+
+
+
+});
+
+
+
+
+</script>
+</body>
+</html>
