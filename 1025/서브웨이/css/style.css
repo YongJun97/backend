@@ -13,7 +13,9 @@ ul{list-style: none;}
     width: 11520px;
     height: 440px;
     /* overflow: hidden; */
+    
 }
+/* #wrap ul.banner:nth-child() */
 .banner li{
     float: left;
     width: 1920px;
