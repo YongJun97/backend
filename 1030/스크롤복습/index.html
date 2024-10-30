@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/main.js"></script>
+    
+<style>
+*{margin: 0;padding: 0;}
+ul{list-style: none;}
+a{text-decoration: none; color: #000;}
+
+h2{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 10;
+    background-color: rgba(255,255,255,0.8);
+
+}
+
+.bigbox{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+nav{position: absolute;
+    width: 100%;
+    height: 100px;
+    top: 100px;
+    background-color: rgba(255, 243, 243, 1);
+}
+nav.fixed{
+    position: fixed;
+    top: 0;
+    background-color: rgba(255, 243, 243, 0.5);
+}
+ul{
+    
+    width: 1900px;
+    height: 100px;
+    
+    
+    margin: 0 auto;
+}
+ul li{float: left;}
+ul li a{
+    display: inline-block;
+    width: 300px;
+    height: 100px;
+    line-height: 100px;
+    background-color: rgb(30, 210, 150);
+    margin-right: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+ul li:first-child a{
+    margin-left: 100px;
+}
+.box1{
+    background-color: bisque;
+    width: 100%;
+    height: 100vh;
+}
+.box2{
+    background-color: aquamarine;
+    width: 100%;
+    height: 100vh;
+}
+.box3{
+    background-color: cadetblue;
+    width: 100%;
+    height: 100vh;
+}
+.box4{
+    background-color: coral;
+    width: 100%;
+    height: 100vh;
+}
+.box5{
+    background-color: cornflowerblue;
+    width: 100%;
+    height: 100vh;
+}
+nav ul li a.on{color: orange;}
+
+#pdt_basic{
+    position: fixed;
+    width: 362px;
+    height: 450px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+
+#popup{
+    width:301px;
+	height:351px;
+	position:absolute;
+	top:210px;
+	left:50px;
+	box-shadow:2px 2px 5px rgba(0,0,0,0.5); 
+    display: none;
+}
+#notice_wrap{
+	width:301px;
+	position:absolute;
+	left:400px;
+	top:210px;
+	box-shadow:0 0 8px #000;
+	font-size:12px;
+}
+#notice_wrap img{float:left;}
+
+.closeWrap{
+	background-color:#000;
+	color:#fff;
+	text-align:right;
+	padding:5px 10px;
+}
+.closeWrap button{
+	margin-left:20px; cursor:pointer;
+}
+</style>
+</head>
+<body>
+    <h2>현재스크롤위치 : <span id="stop">000</span></h2>
+    <div class="bigbox">
+        <nav>
+            <ul>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+            </ul>
+        </nav>
+        <div class="scrollbox">
+            <div class="box1">박스1</div>
+            <div class="box2">박스2</div>
+            <div class="box3">박스3</div>
+            <div class="box4">박스4</div>
+            <div class="box5">박스5</div>
+        </div>
+        <div id="pdt_basic">
+            <img src="images/pdt_basic.png" alt="">
+        </div>
+        <div id="popup">
+            <img src="images/popup.jpg" usemap="#pop" />
+            <map name="pop" id="'pop'">
+                <area shape="rect" coords="252,330,295,348" href="#" alt="창닫기">
+                <area shape="rect" coords="95,332,215,345" href="#" alt="오늘 하루 열지않음">
+            </map>
+        </div>
+        <div id="notice_wrap">
+            <img src="images/popup1.jpg" alt="공지사항"/>
+            <p class="closeWrap">
+               <input type="checkbox" name="expiresChk" id="expiresChk"  >
+               <!-- input창은 보통 lable과 input 의 클래스를 같은명을 쓴다 -->
+               <label for="expiresChk">3일 동안 이 창 열지않기</label>
+            
+               <button class="closeBtn">닫기</button>
+            </p>
+         </div>
+    </div>
+    
+</body>
+</html>
+<script>
+$(function(){
+    $(window).scroll(function(){
+      var sct = $(window).scrollTop();
+      //현재 스크롤의 위치
+      $('#stop').text(sct);
+
+        if(sct >= 100){
+            $('nav').addClass('fixed');
+        }else{
+            $('nav').removeClass('fixed');
+        }
+
+        if(sct >= $('.scrollbox > div').eq(0).offset().top){
+            $('nav ul li a').removeClass('on');
+            $('nav ul li a').eq(0).addClass('on');
+        }
+        if(sct >= $('.scrollbox > div').eq(1).offset().top){
+            $('nav ul li a').removeClass('on');
+            $('nav ul li a').eq(1).addClass('on');
+        }
+        if(sct >= $('.scrollbox > div').eq(2).offset().top){
+            $('nav ul li a').removeClass('on');
+            $('nav ul li a').eq(2).addClass('on');
+        }
+        if(sct >= $('.scrollbox > div').eq(3).offset().top){
+            $('nav ul li a').removeClass('on');
+            $('nav ul li a').eq(3).addClass('on');
+        }
+        if(sct >= $('.scrollbox > div').eq(4).offset().top){
+            $('nav ul li a').removeClass('on');
+            $('nav ul li a').eq(4).addClass('on');
+        }
+
+    });
+
+    
+
+
+
+    $('ul li').click(function(){
+    var i = $(this).index();
+
+    var a = $('.scrollbox > div').eq(i).offset().top;
+
+    $('html, body').stop().animate({scrollTop:a},1300);
+
+    return false;
+});
+
+    $('.scrollbox > div').mousewheel(function(event,d){
+        console.log(d);
+        
+        if(d > 0){ //휠을 위로
+          var prev = $(this).prev().offset().top;
+          $('html,body').stop().animate({scrollTop:prev},1000);
+        }
+
+        if(d < 0){
+            var next = $(this).next().offset().top;
+            $('html,body').stop().animate({scrollTop:next},1000);
+        }
+    });
+
+
+    $('#popup').draggable();
+
+    if($.cookie('pop')!='no'){
+        $('#popup').show();
+    }
+    $('#popup area:eq(0)').click(function(){
+        $('#popup').fadeOut('fast');
+    });
+
+    $('#popup area:eq(1)').click(function(){
+        $.cookie('pop','no',{expires:1});
+        $('#popup').fadeOut('fast');
+    });
+
+
+    $('#notice_wrap').draggable();
+
+    if($.cookie('popup')=='none'){
+        $('#notice_wrap').hide();
+    }
+
+    var chk = $('expiresChk');
+
+    $('closeBtn').on('click',closePop);
+
+    function closePop(){
+        if(chk.is(':checked')){ //input 창에 checked(체크가)가 있으면
+            $.cookie('popup','none',{expires:3});
+            //chk변수가 checked를 가지고 있으면
+            //popup에 none을
+        }
+        // $('#notice_wrap').hide();
+    }
+
+
+});
+
+
+
+
+
+
+
+
+</script>
