@@ -10,57 +10,58 @@
 <body>
     <div id="wrap">
         <header><img class="logo" src="img/logo.png" alt=""><img class="line" src="img/header_line.png" alt=""></header>
+        <div class="line2"><img src="img/header_line.png" alt=""></div>
         <div class="menubox">
             <ul class="menu">
-                <li class="meun1 lis">
+                <li class="meun1 lis"><a href="#">
                     ABOUT다소니
+                </a>
                      <ul class="box">
-                        <li>인사말</li>
-                        <li>오시는길</li>
-                        <li>공지사항</li>
-                        <li>마음산책</li>
-                        <li>후기</li>
+                        <li><a href="#">인사말</a></li>
+                        <li><a href="#">오시는길</a></li>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">마음산책</a></li>
+                        <li><a href="#">후기</a></li>
                     </ul>
-                
                 </li>
-                <li class="meun2 lis">
+                <li class="meun2 lis"><a href="#">
                     상담진 소개
+                </a>
                     <ul class="box">
-                        <li>대표/슈퍼바이저</li>
-                        <li>다소니 상담진</li>
+                        <li><a href="#">대표/슈퍼바이저</a></li>
+                        <li><a href="#">다소니 상담진</a></li>
                     </ul>
-                
                 </li>
-                <li class="meun3 lis">
+                <li class="meun3 lis"><a href="#">
                     심리상담
+                </a>
                     <ul class="box">
-                        <li class="aaa">성인심리상담</li>
-                        <li>청소년/아동심리상담</li>
-                        <li>부부상담</li>
-                        <li>가족상담</li>
-                        <li>심리상담 예약신청</li>
+                        <li><a href="#">성인심리상담</a></li>
+                        <li><a href="#">청소년/아동심리상담</a></li>
+                        <li><a href="#">부부상담</a></li>
+                        <li><a href="#">가족상담</a></li>
+                        <li><a href="#">심리상담 예약신청</a></li>
                     </ul>
-                
                 </li>
-                <li class="meun4 lis">
+                <li class="meun4 lis"><a href="#">
                     심리검사
+                </a>
                     <ul class="box">
-                        <li>다소니전문심리검사</li>
-                        <li>종합심리평가</li>
-                        <li>신경심리평가</li>
-                        <li>단일검사</li>
-                        <li>심리검사 예약신청</li>
+                        <li><a href="#">다소니전문심리검사</a></li>
+                        <li><a href="#">종합심리평가</a></li>
+                        <li><a href="#">신경심리평가</a></li>
+                        <li><a href="#">단일검사</a></li>
+                        <li><a href="#">심리검사 예약신청</a></li>
                     </ul>
-                
                 </li>
-                <li class="meun5 lis">
+                <li class="meun5 lis"><a href="#">
                     관계테라피
+                </a>
                     <ul class="box">
-                        <li>부부관계테라피</li>
-                        <li>가족관계테라피</li>
-                        <li>커플관계테라피</li>
+                        <li><a href="#">부부관계테라피</a></li>
+                        <li><a href="#">가족관계테라피</a></li>
+                        <li><a href="#">커플관계테라피</a></li>
                     </ul>
-                
                 </li>
             </ul>
         </div>
@@ -68,12 +69,28 @@
 </body>
 </html>
 <script>
-$(function(){
-    $('.menu').mouseover(function(){
+$(function() {
+    $('.menu').hover(
+        function() {
+            // $(this).css({ height: '300px', 'border-bottom': 'none' });
+            // $('.box li, .line2').show();
+            $('.menu').stop().animate({height:'300px',borderBottomWidth:'0px'},280);
+            $('.box li, .line2').stop().fadeIn(280);
+        },
+        function() {
+            // $(this).css({ height: '52px', 'border-bottom': '1px solid #eee' });
+            // $('.box li, .line2').hide();
+            $('.menu').stop().animate({ height: '52px', borderBottomWidth: '1px' }, 280);
+            $('.box li, .line2').stop().fadeOut(280);
+        });
         
-        $('.menu').css('heigth','300px')
-
-    });
+    $('.box li a').hover(function(){
+            $(this).addClass('on');
+    },
+    function(){
+        $(this).removeClass('on');
+    }
+);    
 
 });
 

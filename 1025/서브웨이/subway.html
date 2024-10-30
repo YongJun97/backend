@@ -39,7 +39,7 @@ $(function(){
 
     
     $('.box li').click(function(){
-        clearInterval(ad);
+        
         i = $(this).index();
         $('.banner').stop().animate({'margin-left':-i*100+'%'},600);
         $('.box li').removeClass('on');
@@ -48,7 +48,8 @@ $(function(){
 
     function timer(){
         i++;
-        if(i === total){
+        if(i === total ){
+            $('.banner').css('margin-left', 0);
             i = 0;}
                  
          $('.banner').stop().animate({'margin-left':-i*100+'%'},600);
