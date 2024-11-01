@@ -119,8 +119,8 @@ header .gnb{
 	top:50%;
 	left:50%;
 	transform: translate(-50%, -50%);
+	padding: 50px;
 	background: url(../img/main_txt_box.png) no-repeat 50% 50% / cover;
-	box-sizing: border-box;
 }
 /* 박스안에 큰글씨 를 70정도 내리고 숨김 */
 .s1_tbox h2{
@@ -160,4 +160,155 @@ header .gnb{
 .s1_tbox p.aa.on{
 	transform:translate(0 ,0);
 	opacity:1;
+}
+
+
+/* 예약신청 */
+
+#s2{
+	height: 635px;
+	pad: 80px 0 40px;
+	box-sizing: border-box;
+	background: url(../img/sec1_bg.jpg);
+}
+.s2_title{
+	width: 1000px;
+	height: 180px;
+	text-align: center;
+	margin: 0 auto;
+}
+.s2_title h2{
+	font-size: 48px; color: #ff8f2b;
+	margin-top: 20px;
+}
+.s2_title p{
+	font-size: 16.5px; color: #666; line-height: 30px;
+	margin: 30px 0 40px;
+}
+.s2_table{
+	width: 1000px;
+	height: 250px;
+	border-top: 3px solid #ff8f2b;
+	margin: 40px auto 0;
+}
+.s2_table li{
+	width: 247px;
+	height: 250px;
+	margin-right: 3px;
+	box-sizing: border-box;
+	float: left;
+	margin-top: 1px;
+	text-align: center;
+	pad: 30px;
+}
+.s2_table li:nth-child(1){
+	background: #fff url(../img/sec01_icon.png) no-repeat 50% 50%;
+}
+.s2_table li:nth-child(2){
+	background: #fff url(../img/sec01_icon2.png) no-repeat 50% 50%;
+}
+.s2_table li:nth-child(3){
+	background: #fff url(../img/sec01_icon3.png) no-repeat 50% 50%;
+}
+.s2_table li:nth-child(4){
+	background: #ff8f2b url(../img/sec01_icon4.png) no-repeat 50% 50%;
+}
+.s2_table li p{
+	font-size: 20px; color: #000; margin-top: 20px;
+}
+.s2_apply{
+	display: block;
+	width: 116px;
+	height: 35px;
+	color: #fff;
+	background: #ff8f2b; border-radius: 17px;
+	text-align: center;
+	line-height: 35px;
+	margin: 110px auto;
+	transition: all 0.5s;
+	border: 1px solid #fff;
+}
+.s2_table li:nth-child(4) .s2_apply{
+	background: #fff;
+	border: 1px solid #ff8f2b;
+	color: #ff8f2b;
+}
+
+.s2_table li .s2_apply:hover{
+	background-color: #fff;
+	border: 1px solid #ff8f2b;
+	color: #ff8f2b;
+}
+
+
+.s2_table li:nth-child(4) .s2_apply:hover{
+	background-color: #ff8f2b;
+	border: 1px solid #fff ;
+	color: #fff;
+}
+.s2_title img, .s2_title h2, .s2_title p{
+	visibility: hidden;
+}
+.s2_title img.slide, .s2_title h2.slide, .s2_title p.slide{
+	animation: slide 1s;
+	visibility: visible;
+}
+@keyframes slide{
+	0%{
+		opacity: 0;
+		transform: translateY(70%);
+	}
+	100%{
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.s2_table li{
+	visibility: hidden;
+}
+.s2_table li.slide{
+	animation: slide 1s;
+	visibility: visible;
+}
+#s3{
+	height: 640px;
+	pad: 80px 0 40px;
+	box-sizing: border-box;
+	background: url(../img/sec2_bg.jpg);
+}
+.s3_title{
+	width: 1000px;
+	height: 180px;
+	text-align: center;
+	margin: 0 auto;
+}
+.s3_title >img{
+	margin-top: 70px;
+}
+.s3_title h2{
+	margin-top: 20px;
+	font-size: 48px;
+}
+.s3_title p{
+	
+	margin-top: 30px;
+	font-size: 16.5px;
+}
+.s3_table {
+    width: 100%;
+    height: 200px;
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    margin-top: 120px;
+	padding: 0; /* 패딩 제거 */
+    list-style: none; /* 리스트 스타일 제거 */
+
+}
+.s3_table li{
+	width: 194px;
+	height: 200px;
+	background-color: #ff8f2b;
+	margin: 0 auto;
+	
 }
