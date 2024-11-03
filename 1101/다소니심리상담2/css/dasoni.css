@@ -295,7 +295,7 @@ header .gnb{
 	font-size: 16.5px;
 }
 .s3_table {
-    width: 100%;
+    width: 1000px;
     height: 200px;
     display: flex; /* Flexbox 사용 */
     justify-content: center; /* 중앙 정렬 */
@@ -303,12 +303,69 @@ header .gnb{
     margin-top: 120px;
 	padding: 0; /* 패딩 제거 */
     list-style: none; /* 리스트 스타일 제거 */
-
+	margin-left: 445px;
 }
 .s3_table li{
 	width: 194px;
 	height: 200px;
-	background-color: #ff8f2b;
+	background-color: #fff;
 	margin: 0 auto;
+	display: block;
+	box-sizing: border-box;
 	
+}
+.s3_table li a{
+	display: block;
+	text-align: center;
+	line-height: 300px;
+	box-sizing: border-box;
+}
+.s3_table li a.pi1{
+	background: url(../img/sec02_icon.png) no-repeat 0 0;
+	background-position: 45px 40px;
+}
+.s3_table li a.pi2{
+	background: url(../img/sec02_icon2.png) no-repeat 0 0;
+	background-position: 75px 40px;
+}
+.s3_table li a.pi3{
+	background: url(../img/sec02_icon3.png) no-repeat 0 0;
+	background-position: 75px 40px;
+}
+.s3_table li a.pi4{
+	background: url(../img/sec02_icon4.png) no-repeat 0 0;
+	background-position: 75px 40px;
+}
+.s3_table li a.pi5{
+	background: url(../img/sec02_icon5.png) no-repeat 0 0;
+	background-position: 75px 40px;
+}
+.s3_table li:hover {
+	border: 1px solid #000;
+	display: block;
+}
+
+.s3_title img, .s3_title h2, .s3_title p{
+	visibility: hidden;
+}
+.s3_title img.slide, .s3_title h2.slide, .s3_title p.slide{
+	animation: slide 1s;
+	visibility: visible;
+}
+@keyframes slide{
+	0%{
+		opacity: 0;
+		transform: translateY(70%);
+	}
+	100%{
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.s3_table li{
+	visibility: hidden;
+}
+.s3_table li.slide{
+	animation: slide 1s;
+	visibility: visible;
 }
