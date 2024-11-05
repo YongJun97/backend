@@ -637,12 +637,26 @@ footer{
 	
 }
 .fix_box{
-
+	width: 75px;
+	position: absolute;
+	left: 50%;
+	margin-left: 550px;
+	top: 400px;
+	z-index: 99;
 }
 .fix_box li a{
 	display: block;
 	width: 75px;
 	height: 75px;
 	border-radius: 50%;
-	
+	margin-bottom: 20px;
+}
+.fix_box a.fix_talk{
+	background: #D46F5D url(../img/q_icon.png) no-repeat 50% 50%;
+}
+.fix_box a.fix_phone{
+	background: #D46F5D url(../img/q_icon2.png) no-repeat 50% 50%;
+}
+.fix_box a.fix_clock{
+	background: #D46F5D url(../img/q_icon3.png) no-repeat 50% 50%;
 }
