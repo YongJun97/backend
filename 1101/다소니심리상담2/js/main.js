@@ -45,8 +45,12 @@ $(function(){
     var c3 = $('.s4_title p').offset().top;
     var c4 = $('.s4_table li').offset().top;
 
+    var d1 = $('.s5_inner img').offset().top;
+    var d1 = $('.s5_inner h2').offset().top;
+    var d1 = $('.s5_inner p').offset().top;
+    var d1 = $('.s5_inner a').offset().top;
 
-
+    var d2 = $('#s6').offset().top;
 
     $(window).scroll(function(){
         var sct = $(this).scrollTop();
@@ -123,7 +127,14 @@ $(function(){
             setTimeout(function(){
                 $('.s4_table li').eq(3).addClass('slide');
             },900);
-            
+        }
+        
+        if(d1 < sct + 700){
+            $('.s5_inner').addClass('slide1');
+        }
+
+        if(d2 < sct + 700){
+            $('.left').addClass('slide1');
         }
     });
     
