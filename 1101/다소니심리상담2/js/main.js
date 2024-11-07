@@ -51,9 +51,12 @@ $(function(){
     var d1 = $('.s5_inner a').offset().top;
 
     var d2 = $('#s6').offset().top;
+    var f_box = $('.fix_box').offset().top;
 
     $(window).scroll(function(){
         var sct = $(this).scrollTop();
+
+        $('.fix_box').stop().animate({top:f_box+sct},500)
 
         if(a1 < sct + 700){
             $('.s2_title img').addClass('slide');
