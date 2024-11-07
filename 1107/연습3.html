@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+<style>
+*{margin: 0;padding: 0;}
+
+ul{list-style: none;}
+
+.bigbox{
+    width: 1000px;
+    height: 600px;
+    /* background-color: aquamarine; */
+    position: relative;
+    margin: 200px auto;
+}
+
+.tab{
+    /* margin: 50px; */
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    width: 300px;
+    height: 50px;
+    /* background-color: burlywood; */
+}
+.tab li{
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    /* background-color: burlywood; */
+    float: left;
+
+}
+.tabbox{
+    position: absolute;
+    width: 800px;
+    bottom: 0;
+    left: 15%;
+    height: 250px;
+    background-color: coral;
+}
+.m{
+   margin: 50px 0 0 100px;
+   display: none;
+}
+.tab li.on{
+    background-color: blueviolet;
+}
+.tab li:hover{
+    background-color: chartreuse;
+}
+
+
+
+</style>
+</head>
+<body>
+    <div class="bigbox">
+        <ul class="tab">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+        <div class="tabbox">
+            <div class="m">dsadashdaskhdasdjklasjkldklasjklda</div>
+            <div class="m">djfsdflkksdlfksl;dfklsdjfklsjdkfljdsklfjsdklfjkdlsf</div>
+            <div class="m">메뉴3fsjfsdklfskldfjklsdjfklsdjfklsdkflsdklfjsklfjklsdjfklsdjklsdjfkl</div>
+        </div>
+
+    </div>    
+</body>
+</html>
+<script>
+$(function(){
+    
+
+
+    $('.tab li').click(function(){
+        var i = $(this).index();
+        $('tab li').siblings().removeClass('on');
+        $(this).addClass('on');
+        
+
+    $('.tabbox > div').hide();        
+    $('.tabbox > div').eq(i).show();
+
+    }); 
+
+
+
+
+});
+
+
+
+
+</script>

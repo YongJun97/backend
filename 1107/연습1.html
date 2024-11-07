@@ -4,42 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
 <style>
-*{margin: 0;padding: 0;}
-ul{list-style: none;
-width: 100%;
-height: 100%;
-background-color: antiquewhite;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-#wrap{
-    width: 900px;
-    height: 900px;
-    margin: 100px auto;
-    border: 1px solid #000;
-}
-li{
-    width: 600px;
+ul {
+    list-style: none;
+    display: flex;          /* Flexbox로 가로 정렬 */
+    width: 600%;
     height: 600px;
-    float: left;
+    /* margin-left: 100px; */
+    border: 1px solid red;
+    /* justify-content: center;  */
+    align-items: center;     /* 슬라이드 요소가 여러 개 보여질 경우에 맞추기 위해 넓게 설정 */
 }
-.box1{
-    background-color: aqua;
+
+#wrap {
+    width: 900px;
+    height: 600px;
+    margin: 100px auto;
+    overflow: hidden;      
+    border: 1px solid #000;
+    position: relative;
 }
-.box2{
-   background-color: blueviolet;
+
+li {
+    width: 900px;            /* 각 li가 #wrap과 동일한 너비 */
+    height: 500px;
+    flex-shrink: 0;         
 }
-.box3{
-    background-color: aquamarine;
-}
-.box4{
-    background-color: chocolate;
-}
-.box5{
-    background-color: coral;
-}
-.box6{
-    background-color: chartreuse;
+
+.box1 { background-color: aqua; }
+.box2 { background-color: blueviolet; }
+.box3 { background-color: aquamarine; }
+.box4 { background-color: chocolate; }
+.box5 { background-color: coral; }
+.box6 { background-color: chartreuse; }
+
+
+.btn{
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: auto;
+    /* border: 1px solid #000 */
+    margin-left: 50%;
+    
 }
 </style>
 
@@ -54,6 +67,53 @@ li{
             <li class="box5 cf">박스5</li>
             <li class="box6 cf">박스6</li>
         </ul>
+        <div class="btn">
+            <button class="prev">이전</button>
+            <button class="next">다음</button>
+        </div>
     </div>
 </body>
 </html>
+<script>
+    $(function(){
+       var num = 0;
+       var tt = $('ul li').length;
+       var li_w = $('ul li').eq(0).width();
+    //    var cop = $('ul li:lt()').clone();
+    //    $('ul').prepend($('ul li').last().clone());
+        // $('ul').append(cop);
+        
+        $('.next').click(function(){
+            if(num == tt){
+                num = 0;
+                $('ul li').css('margin-left','0');
+            }
+            num++;
+            $('ul').stop().animate({marginLeft:-li_w * num}, 500);
+        });
+        $('.prev').click(function(){
+            if(num == 0){
+                num = tt;
+                $('ul').css('margin-left',-li_w*num);
+            }
+            num--;
+            $('ul').stop().animate({marginLeft:-li_w*num},500);
+            return false;
+        });
+
+
+       var id = setInterval(autoplay, 3000);
+       function autoplay(){
+        if(num == tt){
+                num = 0;
+                $('ul li').css('margin-left','0');
+            }
+            num++;
+            $('ul').stop().animate({marginLeft:-li_w * num}, 500);
+       }
+    });
+
+
+
+
+</script>
