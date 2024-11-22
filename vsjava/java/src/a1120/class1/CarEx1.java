@@ -20,12 +20,12 @@ public class CarEx1 {
         myCar1.speed = 60;
         System.out.println("수정된 속도: " + myCar1.speed);
 
-        Car myCar2 = new Car1("기아","투싼","쥐색",220,65);
-        System.out.println("제작회사 : " + myCar2.company);
-        System.out.println("모델 : " + myCar2.model);
-        System.out.println("색상 : " + myCar2.color);
-        System.out.println("최고속도 : " + myCar2.maxSpeed);
-        System.out.println("현재속도 : " + myCar2.speed);
+        // Car myCar2 = new Car1("기아","투싼","쥐색",220,65);
+        // System.out.println("제작회사 : " + myCar2.company);
+        // System.out.println("모델 : " + myCar2.model);
+        // System.out.println("색상 : " + myCar2.color);
+        // System.out.println("최고속도 : " + myCar2.maxSpeed);
+        // System.out.println("현재속도 : " + myCar2.speed);
 
     }
 }
