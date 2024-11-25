@@ -11,3 +11,125 @@
 학생 정보 출력
 학생 국어 점수 수정 95
 평균 점수 출력해보세요
+
+
+
+
+1. 파일 Hw.java 생성
+
+2.main 입력 후 Student 클래스필드를 main밖에 생성
+static class Student{
+				접근을 제한 하기 위해 private으로 생성	
+ 	private String name; 	학생의 이름
+	private int number; 		학번
+	private int[] score; 		해당 학생의 점수들
+}
+3.main 내부에 클래스 입력
+ex) Student s = new Student("홍길동",20231234,90,85,92)
+
+4. 2번의 클래스 필드를 드래그 한 후 전구 아이콘을 클릭하면 
+generate constructs.. 를 클릭하여 생성자를 생성, 여기서 생성자란
+클래스 내부의 값을 초기화 또는 초기값을 정해주기 위해 사용한다
+나는 name , number , score 라는 필드에 홍길동 , 20231234 , 90,82,92
+라는 초기값을 지정했다.
+
+5.getter와 setter 를 생성한다 마찬가지로 필드를 드래그 한 후 getter 로
+시작하는 부분을 클릭하면 자동 생성된다
+ex) public String getName() {
+            return name;
+        }
+        public void setName(String name) {
+            this.name = name;
+        }
+        public int getNumber() {
+            return number;
+        }
+        public void setNumber(int number) {
+            this.number = number;
+        }
+        public int[] getScore() {
+            return score;
+        }
+        public void setScore(int[] score) {
+            this.score = score;
+        }
+get은 변수 값을 조회 할수있는 메서드고 set은 변수값을 설정 할 수 있는 메서드다
+여기 까지가 세팅
+
+6.학생정보 출력
+        System.out.println("이름: "+ s.getName());
+        System.out.println("학번: "+ s.getNumber());
+        System.out.println("점수: " + Arrays.toString(s.getScore()));			
+	이름:  홍길동
+	학번:  20231234
+	점수: [90, 85 , 92]
+
+7. 배열 안에 있는 숫자를 수정하기 위한 작업
+일단 int[] score의 정보를 가져와서 배열 안의 숫자를 바꾸거나 국어, 수학 등 분류를 하기 위해
+다른 이름의 변수로 바꿔준다 난 score를 scores로 바꿨다
+	int[] scores = s.getScore(); 이런 식 으로 scores 안에 배열 정보를 넣어준다
+먼저 배열 안의 숫자만을 바꿀 것 이면
+int[] scores = s.getScore(); 밑에
+scores[0] = 85; 란 식으로 쓴다면 인덱스 번호 0번방 즉 초기값으로 준
+90 이란 숫자가 85로 바뀐다.
+System.out.println("점수수정: " + Arrays.toString(s.getScore())); 로 확인
+이제 분별력을 위해 숫자 앞에 문자를 삽입한다
+
+8.문자객체 생성
+String[] sub = {"국어","수학","영어"} 문제 에서는 국어만 바꾸라고 했으므로
+과목은 국어를 포함 해 임의로 정한다.
+이제 이 sub 라는 문자배열을 scores라는 배열안에 삽입한다
+정확히는 다른 score를 scores로 바꿨듯이 다른 배열객체로 바꾸기 위함이다
+그러므로 새로운 객체 la를 만들었다.
+	String[] la = new String[scores.length];  여기서 scores.length는 la의 배열 크기를 맞추기 위함이다.
+ 	이후에 각 배열의 필드 앞에 문자와  ( : ) 를 붙여야 하기 때문에 
+	for문을 돌려준다
+	for(int i = 0; i < scores.length; i++){    i는 인덱스 번호다
+	     la[i] = sub[i] + ":" + scores[i];         i는 scores.length 의 크기보다 작을 때 까지
+	} 			            for문을 돌기 때문에 for문을 돌 때마다 인덱스 번호는 +1 의 값을 가질것			
+  				            sub의 인덱스0번방 과과 ":" 와 scores의 인덱스 0번 방을 합친 값이 la의 인덱스 0번방
+				            에 들어가는 방식이다.
+
+이렇게 for문을 작성 한 후 
+System.out.println("점수: " + Arrays.toString(la)); 로 출력을 해 주면
+바뀐 배열객체 la 로 
+	점수: [국어:85, 수학:85, 영어:92] 로 출력 된다.
+
+9.합계
+일단 평균을 구하기 위한 변수를 생성한다
+		double avg = avg(scores); 이렇게 변수를 main 안에 작성하고
+				         main 밖에 합계값을 구하기 위한 코드를 작성한다
+		
+		public static int plus(int[] scores){   먼저 합계를 구하기 위해 plus라는 메서드를 만들고           
+			int sum = 0;                  plus 메서드 안 에서 합계값을 담기 위한 int sum이란 변수를 만들고 = 0 으로 초기화 시켜준다
+			for(int score : scores){     배열안에 점수 라는 요소를 하나씩 더해야 하기 때문에 for문을 돌린다
+	                                  sum += score;	           for(int score : scores) 이 형태는 foreach문과 동일한 것 으로 기존 for문 보다 좀 더 향상된 버전
+			}	                        정도로 생각 하면 된다.		
+			return sum;	           처음에 지정한 필드 score 배열 안에 있는 요소를 scores 배열 안에 순차적으로 처리한다는 뜻	
+		}			           순차적 으로 처리를 한다면 결과값은 for 문 안에 있는 식을 순차적 으로 처리 한다는 뜻 이다.	
+					           즉 초기값을 0 으로 잡은 sum = sum + score; 로 sum 안에 score 안에 있는 값을 더하는 동작을
+						반복하여 scores배열 안의 모든 값을 더하게 된다.
+						그 값을 return sum 으로 반환 시킨다. 이제 합계값은 sum에 저장 되어 있다.
+
+10.평균
+평균 값을 구하기 위해 합계와 마찬가지로 메서드를 하나 생성한다
+나는 avg라고 지었다.
+		public static double avg(int[] scores){
+		int sum = plus(scores);  		     참고로 위의 plus 메소드 안의 sum 과는 다른 sum 이다 
+		double avg = (double) sum / scores.length; 다음 부터는 이름을 다르게 하자.
+		return avg;                                              sum은 그저 해당 매소드 안에서 계산을 하기 위한 도구 이다.
+	}						
+                          int sum 변수 안에 plus(scores); 매소드를 호출시켜 넣어준다
+	            평균값이 들어갈 avg 안에 int로 받았던 sum을 double로 변환 시켜주고
+	            sum 과 scores.length 즉 scores배열의 인덱스 수 만큼 나눠주는 코드를 쓴 후
+	            값 avg로 반환 시켜준다. 이제 avg(scores) 매서드안에 평균값이 들어가 있으니 출력 시킨다
+
+		double avg = avg(scores); 이 변수는 출력을 위해 만든 변수 이다
+		
+	출력: System.out.println("평균: "+ avg); 						     	
+	결과: 평균: 87.33333333333333
+
+
+
+
+
