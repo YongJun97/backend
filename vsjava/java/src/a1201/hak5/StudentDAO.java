@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class StudentDAO {
     private ArrayList<StudentDTO> slist;
     Scanner sc = new Scanner(System.in);
+    FileClass file = new FileClass("student", "student_Grade");
     public StudentDAO(){ // 생성메서드
         slist = new ArrayList<StudentDTO>();
         // 기본데이터 - 4명의 더미데이터 생성
@@ -146,15 +147,33 @@ public class StudentDAO {
 
 
         public void printAll() {
-            System.out.println(" 이름\t 나이\t 국어\t 영어\t 수학\n" +
-                "--------------------------------------------------------");
-                for(int i=0; i< slist.size(); i++){
-                    System.out.println(slist.get(i).toString());
-                }
+            System.out.println(" 이름\t 나이\t 국어\t 영어 \t수학 \n" +  
+            "-------------------------------------------------");
+            for(int i=0; i < slist.size();i++){
+                System.out.println(slist.get(i).toString());
+            }
         }
+        public void dataSave() throws Exception {
+            file.create();
+            String str = "이름\t 나이\t 국어\\t 영어\\t 수학\n" + 
+            "-------------------\n";
+            for(int i = 0 ;i < slist.size();i++){
+                str += slist.get(i).toString()+"\n";
+            }
+            file.write(str);
+    
+        }
+        public void dataLoad() {
+            try{
+                file.read();
+            }catch(Exception e){
+                System.out.println("읽을파일이 없습니다.");
+            }
+        }
+    }
                         
                         
       
          
-    
-}
+   
+
