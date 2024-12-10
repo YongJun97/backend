@@ -1,0 +1,37 @@
+2.
+(1). create database db명;
+
+(2).desc member;
+
+(3).alter table member add age int ;
+
+(4).alter table member drop age;
+
+(5).alter table member rename members;
+
+(6).alter table member modify name char(20);
+
+
+
+3.
+(1).desc employee;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+성 나이 이름 사는곳 근무가능기간 경력여부
