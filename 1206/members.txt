@@ -1,5 +1,0 @@
-ezen,123,황이젠,,false,2001,010-7777-7777,경기도,ezen@mail.com
-dew,123,최듀이,,false,1986,010-1111-1111,경기도 의정부시,dew@mail.com
-mal,123,이쁜말,,false,2001,010-2222-2222,경기도 오산시,mal@mail.com
-flower,123,한꽃님,,false,2011,010-3333-3333,인천광역시,flower@mail.com
-mango,123,박망고,,false,1984,010-4444-4444,경기도 안산시,mango@mail.com
