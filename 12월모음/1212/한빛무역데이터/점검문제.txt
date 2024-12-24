@@ -1,0 +1,14 @@
+점검문제
+
+1. select * from 고객 where 도시 Like '서울%';
+
+2.  select distnct 지역, 도시 from 고객 order by 1, 2;
+
+3.select * from 고객 where 도시 in ('춘천시','과천시','광명시') 
+and (담당자직위 like '%이사' or 담당자직위 like '%사원');
+
+4.select * from 고객
+where not (도시 like '%광역시' or 도시 like '%특별시')
+order by 마일리지 desc limit 3;
+
+5.select * from 고객 where 지역='' and 담당자직위 <> '대표 이사';

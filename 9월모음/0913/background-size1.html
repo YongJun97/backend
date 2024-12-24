@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+.box{
+    width: 200px;
+    height: 150px;
+    border: 1px solid #333;
+    background-image: url(img/c1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50% 0px;
+    /* 포지션을 지정하지 않으면 왼쪽 상단을 기준으로 움직임 */
+    transition: all 0.3s;
+}
+.box:hover{
+    /* background-size: 130%; */
+    background-position: 50% -150px;
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

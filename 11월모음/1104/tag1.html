@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+.tab-container{
+    display: flex;
+}
+.tab{
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+}
+.active-tab{
+    border-color: #000;
+    background-color: blueviolet;
+    color: #fff;
+}
+.tab-content{display: none;}
+
+.active-content{
+    display: block;
+}
+
+
+</style>
+</head>
+<body>
+    <div class="tab-container">
+        <div id="menutab1" class="tab active-tab" onclick="changeTab('tab1')">Tab 1</div>
+        <div id="menutab2" class="tab" onclick="changeTab('tab2')">Tab 2</div>
+        <div id="menutab3" class="tab" onclick="changeTab('tab3')">Tab 3</div>
+    </div>
+    <div id="tab1" class="tab-content active-content">
+        <p>Content for Tab 1</p>
+    </div>
+
+    <div id="tab2" class="tab-content">
+        <p>Content for Tab 2</p>
+    </div>
+
+    <div id="tab3" class="tab-content">
+        <p>Content for Tab 3</p>
+    </div>
+    <script>
+        function changeTab(tabId){
+            const allTabs = document.querySelectorAll('.tab');
+            const allContents = document.querySelectorAll('.tab-content');
+
+            allTabs.forEach(function(tab){
+                tab.classList.remove('active-tab');
+            });
+            allContents.forEach(function(content){
+                content.classList.remove('active-content');
+            });
+
+            const selectedTab = document.getElementById("menu"+tabId);
+            selectedTab.classList.add('active-tab');
+
+            const selectedcontent = document.getElementById(tabId);
+            selectedcontent.classList.add('active-content');
+
+        }
+
+
+
+    </script>
+</body>
+</html>

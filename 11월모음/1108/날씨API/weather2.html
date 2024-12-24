@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+<script>
+$(function(){
+
+
+//   $.getJSON("날씨(경로)", function(data){
+//     data가 할일
+
+
+//   });
+$.getJSON("http://api.openweathermap.org/data/2.5/weather?id=1835553&appid=13701955d653d5000d5ff3f1ecbd1b86&units=metric", function(data){
+    //  alert(data.cod);
+        // alert(data.list[1].main.temp);
+      var $ctemp = data.main.temp;
+      var $maxtemp = data.main.temp_max;
+      var $mintemp = data.main.temp_min;
+      var $wIcon = data.weather[0].icon;
+    //   alert($cData);
+      $('.ctemp').append($ctemp);
+      $('.clowtemp').append($mintemp);
+      $('.chightemp').append($maxtemp);
+      $('h2').prepend($cDate);
+    //   var $now = new Date();
+    // var $cDate = $now.getFullYear()+"/"+($now.getMonth()+1)+"/"+ +$now.getDate(); + " " +$now.getHours() + " : " + $now.getMinutes();
+    var $cDate = new Date().toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+
+
+        $('h2').prepend($cDate);
+        $('.cicon').append(`<img src=" https://openweathermap.org/img/wn/${$wIcon}@2x.png">`);
+
+   });
+   
+
+
+});
+
+
+
+
+</script>
+
+</head>
+<body>
+    <h1>Weather api</h1>
+    <h2> - 날씨예보</h2>
+    <div class="ctemp">첫번째온도 :</div>
+    <div class="clowtemp">최저 온도 :</div>
+    <div class="chightemp">최고 온도 :</div>
+    <div class="cicon">아이콘</div>
+    <!-- <img src=" https://openweathermap.org/img/wn/10d@2x.png" alt=""> -->
+</body>
+</html>

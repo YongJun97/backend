@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+<style>
+*{margin: 0; padding: 0;}
+a{text-decoration: none;}
+ul{
+    list-style: none;
+}
+.main{
+    width: 300px;
+    height: auto;
+    /* background-color: greenyellow; */
+    border: 1px solid #000;
+    margin: 50px auto;
+    text-align: center;
+}
+.main li a{
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(22, 165, 22);
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.main li:nth-child(4) a{
+    border-bottom: none;
+}
+.main li ul li{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: greenyellow;
+    /* display: none; */
+    transition: all 0.3s;
+}
+.main li ul li.on{
+    display: block;
+}
+.main li ul li:hover{
+    background-color: cadetblue;
+}
+</style>
+</head>
+<body>
+    <ul class="main">
+        <li class="box box1">
+            <a href="#">회사소개</a>
+            <ul class="sub">
+                <li>서브1</li>
+                <li>서브2</li>
+                <li>서브3</li>
+            </ul>
+        </li>
+        <li class="box box2">
+            <a href="#">제품소개</a>
+            <ul class="sub">
+                <li>서브1</li>
+                <li>서브2</li>
+                <li>서브3</li>
+            </ul>
+        </li>
+        <li class="box box3">
+            <a href="#">커뮤니티</a>
+            <ul class="sub">
+                <li>서브1</li>
+                <li>서브2</li>
+                <li>서브3</li>
+            </ul>
+        </li>
+        <li class="box box4">
+            <a href="#">다운로드</a>
+            <ul class="sub"> 
+                <li>서브1</li>
+                <li>서브2</li>
+                <li>서브3</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+<script>
+
+
+    $(function(){
+        // $('.main li ul').slideUp();
+        // $('.main li a').click(function(){
+        //     $('.main li ul').slideUp();
+        //     $(this).next('.sub').stop().slideToggle();
+        //     return false;
+        // });
+
+            $('.sub').hide();
+            $('.sub').eq(0).show();
+
+            $('.main li a').click(function(){
+                var i = $(this).next('.sub').css('display');
+
+                if( i == "none"){
+                    $('.sub').slideUp();
+                    $(this).next('.sub').slideDown();
+                }else{
+                    $('.sub').slideUp();
+                }
+
+
+
+            });
+
+
+
+
+    });
+
+
+
+
+
+</script>

@@ -1,0 +1,8 @@
+포토샵
+로고 만들기
+file- new - web탭
+200px x 70px
+-ok 하면 새로운 화면 생성
+우측하단에 layer 패널에서
+Art board1 - 오른쪽 마우스버튼
+ungroup

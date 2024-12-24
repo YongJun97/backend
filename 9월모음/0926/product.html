@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS3 애니메이션</title>
+  <style>
+    .prod-list {
+      list-style:none;
+      margin:0;
+      padding:0;
+     }
+      .prod-list li {
+        width: 300px;
+        height: 200px;
+        position: relative;
+        float: left;
+        padding: 0;
+        margin: 10px;
+        overflow: hidden;
+      }
+      .caption{
+        position: absolute;
+        padding-top: 20px;
+        width: 300px;
+        height: 200px;
+        background: rgba(0,0,0,0.6);
+        text-align: center;
+        opacity: 0;
+        top: 200px;
+        left: 0;
+        color: #fff;
+        text-align: center;
+        transition: all 0.5s;
+        z-index: 10;
+      }
+      .prod-list li:hover .caption{
+        opacity: 0.5;
+        top: 0;
+        /* transform: translateY(-200px);  동일효과 */
+        
+      }
+      .prod-list li:hover .caption h1, .prod-list li:hover .caption,p{
+        
+        opacity: 1;
+        
+
+      }
+
+    .prod-list img {
+      margin:0;
+      padding:0;
+      float:left;
+      z-index:5;
+    }   
+  </style>
+</head>
+<body>
+  <h1>신상품 목록</h1>
+	<div id="container">
+		<ul class="prod-list">
+      <li>
+        <img src="images2/prod1.jpg">
+        <div class="caption">
+          <h1>상품 1</h1>
+          <p>상품 1 설명 텍스트</p>
+          <p>가격 : 12,345원</p>
+        </div>
+      </li>
+      <li>
+        <img src="images2/prod2.jpg">
+        <div class="caption">
+          <h1>상품 2</h1>
+          <p>상품 2 설명 텍스트</p>
+          <p>가격 : 12,345원</p>
+        </div>
+      </li>
+      <li>
+        <img src="images2/prod3.jpg">
+        <div class="caption">
+          <h1>상품 3</h1>
+          <p>상품 3 설명 텍스트</p>
+          <p>가격 : 12,345원</p>
+        </div>
+      </li>
+    </ul>
+	</div>
+</body>
+</html>

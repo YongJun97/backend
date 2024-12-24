@@ -1,0 +1,3 @@
+Model = 데이터
+controller = 제어기능
+mustache = view 화면

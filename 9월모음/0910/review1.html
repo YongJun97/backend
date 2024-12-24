@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+table{
+    text-align: center;
+}
+/* table(전체)=상속 */
+/* ex)body에 20px을 적용하면 전체가 20px가 된다. */
+/* class를 적용시 상속을 벗어날 수 있다. */
+.left{text-align: left;}
+
+
+</style>
+
+
+
+
+</head>
+<body>
+    <table border="1">
+        <colgroup>
+            <col style="width: 150px;"/>
+            <col style="width: 150px;"/>
+            <col style="width: 150px;"/>
+            <col style="width: 150px;"/>
+            <col style="width: 150px;"/>
+        </colgroup>
+        <!-- <tr>줄,행 에 해당된다. -->
+            <td rowspan="2">과목+내용</td>
+            <td colspan="2">html+css</td>
+            
+            <td>javascript</td>
+            <td>jQeury</td>
+        </tr>
+        <tr>
+            
+            <td class="left">쉽고</td>
+            <td>재미있고</td>
+            <td>좀 어렵지만</td>
+            <td>동적이다.</td>
+        </tr>
+        
+
+    </table>
+</body>
+</html>
