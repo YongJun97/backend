@@ -1,0 +1,9 @@
+sql 초기값
+
+CREATE USER 'highgarden_user'@'localhost' IDENTIFIED BY '1234';
+
+GRANT ALL PRIVILEGES ON highgarden_db.* TO 'highgarden_user'@'localhost';
+
+FLUSH PRIVILEGES;
+
+SHOW GRANTS FOR 'highgarden_user'@'localhost';
